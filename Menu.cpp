@@ -161,7 +161,7 @@ void Menu::handleRequests()
 			cout << endl;
 			return;
 		}
-		cout << "Vale ton ari8mo tou antistoixou request pou 8es na diaxeiristeis:  ";
+		cout << "Enter matching friend request number to handle:  ";
 		cin >> global;
 		cout << endl;
 
