@@ -17,7 +17,7 @@ class User
 {
 public:
 	User(Network*);
-	User();
+	User(Network*, string);
 	~User();
 
 	
@@ -38,6 +38,7 @@ public:
 	vector<FriendRequest> incRequests;
 	void getLikedPosts();
 	void wallPost(User*);
+	void reply(User*, int);
 	void printWall();
 	Wall* myWall;
 	
@@ -47,8 +48,6 @@ private:
 	string name;
 	string email;	
 	vector <Message*> likedPosts;
-	
-	
 };
 
 #endif

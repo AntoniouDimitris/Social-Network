@@ -4,6 +4,7 @@
 #include "User.h"
 #include "FriendRequest.h"
 #include "Wall.h"
+#include "ReplyMessage.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -33,9 +34,7 @@ Message::Message(User* Creator, Network* socialNetwork)
 	cout << "Timestamp is" << timestamp << endl;
 	int size = strlen(timestamp);
 	s.assign(timestamp, size);
-
-	
-	this->toString();
+	toString();
 }
 
 string Message::getPost()
@@ -56,9 +55,7 @@ int Message::getLikes()
 void Message::toString()
 {
 	cout << "Please enter your message: " << '\n' << '\n';
-	cin.ignore(0);
 	getline(cin,post);
-	cout << "Your message is: " << post << endl;
 }
 
 string Message::getTimestamp()
@@ -70,4 +67,16 @@ string Message::getCreator()
 {
 	return creator->getName();
 }
-// Mporw na valw mia static metavliti wste na tin allazw kata +1 ekxwrwntas ti se kapoia alli metavliti counter gia na dw poio minima ftiaxtike prwto?
+
+void Message::storeReply(ReplyMessage* reply)
+{
+	replies.push_back(reply);
+}
+
+void Message::printReplies()
+{
+	for (unsigned int i = 0; i < replies.size(); ++i)
+	{
+		cout << '\t' << '\t' << '\t' << "-" << replies[i]->getPost() << '\t' << '\t' << "From: " << replies[i]->creator->getName() << " at " << replies[i]->getTimestamp() << endl;
+	}
+}

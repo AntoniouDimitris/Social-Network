@@ -19,7 +19,7 @@ FriendRequest::~FriendRequest()
 }
 
 
-FriendRequest::FriendRequest(User *User1, User *User2)
+FriendRequest::FriendRequest(User *User1, User *User2)				//constructor me orismata ton apostolea kai to lipti
 {
 	this->sender = User1;
 	this->recipient = User2;
@@ -30,12 +30,11 @@ FriendRequest::FriendRequest(User *User1, User *User2)
 	fromUser = sender->getName();
 	toUser = recipient->getName();
 	
-	cout << "The local date and time is: " << dt << endl;
 
 	status = 2;
 }
 
-void FriendRequest::changeStatus(int flag)  //set friend request to accepted(1) or rejected(2)
+void FriendRequest::changeStatus(int flag)							//set friend request to accepted(1) or rejected(2)
 {
 	if (flag == 1)
 	{

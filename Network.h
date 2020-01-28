@@ -21,6 +21,7 @@ public:
 	void printQueue();
 	void friendApproval(User*, User*, FriendRequest*, int global);
 	void addUser(Network* sNetwork);
+	void autoFill(Network*, string);
 	bool isFriend(User*, User*);
 	void storeWall(Wall*);
 	vector<string> mutualFriends(User*, User*);

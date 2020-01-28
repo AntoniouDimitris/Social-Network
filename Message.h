@@ -11,7 +11,7 @@ class Network;
 class User;
 class FriendRequest;
 class Wall;
-
+class ReplyMessage;
 class Message
 {
 public:
@@ -25,10 +25,15 @@ public:
 	void toString();
 	string getTimestamp();
 	string getCreator();
-	
-private:
+	void storeReply(ReplyMessage*);
+	void printReplies();
+
+protected:
 	char* timestamp;
 	string s;
+
+private:
+	vector<ReplyMessage*> replies;
 	string post;
 	User* creator;
 	Network* socialNetwork;
